@@ -6,16 +6,9 @@ const TemplatePreviewOne = (props) => {
   return (
     <>
       <div className="w-full text-center ">
-        <div
-          // style={{
-          //   backgroundImage: "url('/cell.737ed730a414fd5f9c61.webp')",
-          //   width: "250px",
-          //   height: "350px",
-          // }}
-          className="relative"
-        >
+        <div className="relative">
           <img src="/cell.737ed730a414fd5f9c61.webp" width={250} />
-          <div className="absolute top-0 h-[94%] mx-4 mt-4 bg-white rounded-3xl p-3 overflow-y-auto overflow-x-hidden">
+          <div className="absolute w-[88%] top-0 h-[94%] mx-4 mt-4 bg-white rounded-3xl p-3 overflow-y-auto overflow-x-hidden">
             <div className="header bg-red-500 h-[65%] -mx-4 -mt-4 px-4 pt-16">
               <div className="mx-auto space-y-2 text-center">
                 <img
@@ -41,9 +34,8 @@ const TemplatePreviewOne = (props) => {
               </div>
             </div>
 
-            <div className="w-full centerSection">
-              di
-              <p className="text-sm"> Lorem ipsum dolor sit amet.</p>
+            <div className="mt-4 centerSection">
+              <p className="w-full text-sm"> Lorem ipsum dolor sit amet.</p>
             </div>
           </div>
         </div>
