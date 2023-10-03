@@ -1,5 +1,5 @@
 import templateListData from "../../data/templateList.json";
-import ColorPlateView from "../ColorPlate/ColorPlateView";
+import ColorsPlateView from "../ColorPlate/ColorsPlateView";
 import { useSelectedTemplate } from "../Context/TemplateListContext";
 import InputField from "../Forms/InputField";
 import Switch from "../Forms/Switch";
@@ -21,7 +21,7 @@ const VcardIndex = () => {
           <Switch label="Autocomplete fields" />
           <TemplateList templateList={templateListData} />
 
-          <ColorPlateView />
+          <ColorsPlateView />
         </div>
         <div className="previewSection">
           <TemplatePreviewOne />
