@@ -1,3 +1,4 @@
+import { useRef, useState } from "react";
 import templateListData from "../../data/templateList.json";
 import ColorsPlateView from "../ColorPlate/ColorsPlateView";
 import { useSelectedTemplate } from "../Context/TemplateListContext";
@@ -5,10 +6,10 @@ import InputField from "../Forms/InputField";
 import Switch from "../Forms/Switch";
 import TemplateList from "../List/TemplateList";
 import TemplatePreviewOne from "../Templates/TemplatePreviewOne";
-
 const VcardIndex = () => {
   const selectedTemplate = useSelectedTemplate();
-  console.log(selectedTemplate, "sfds");
+  const [pickerColor, setPickerColor] = useState({});
+
   return (
     <>
       <section className="container flex items-center gap-5 px-5 py-10 mx-auto max-w-7xl bg-slate-100">
@@ -16,15 +17,15 @@ const VcardIndex = () => {
           <h2 className="text-lg font-medium">
             Complete the content of the QR
           </h2>
-          <InputField placeholder="Name Qr Code" />
+          <InputField placeholder="Name Of Qr Code" />
 
           <Switch label="Autocomplete fields" />
           <TemplateList templateList={templateListData} />
 
-          <ColorsPlateView />
+          <ColorsPlateView setPickerColor={setPickerColor} />
         </div>
         <div className="previewSection">
-          <TemplatePreviewOne />
+          <TemplatePreviewOne pickerColor={pickerColor} />
         </div>
       </section>
     </>

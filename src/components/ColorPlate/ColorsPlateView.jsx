@@ -1,7 +1,8 @@
-import { useEffect, useState } from "react";
+import { forwardRef, useEffect, useImperativeHandle, useState } from "react";
 import colotPlateData from "../../data/colorPlate.json";
 
-const ColorsPlateView = () => {
+const ColorsPlateView = (props, ref) => {
+  const { setPickerColor } = props;
   const [selectedColor, setSelectedColor] = useState("color_1");
   const [colorPicker, setColorPicker] = useState({});
 
@@ -9,24 +10,25 @@ const ColorsPlateView = () => {
     const colorPickup = colotPlateData.find((color) => {
       return selectedColor.split("_")[1] == color.id;
     });
-    console.log(colorPickup, "effect");
     setColorPicker(colorPickup);
+    console.log("effect run");
   }, [selectedColor]);
 
-  // const colorPickup = colotPlateData.find((color) => {
-  //   return selectedColor.split("_")[1] == color.id;
-  // });
+  useEffect(() => {
+    setPickerColor(colorPicker);
+  }, [colorPicker]);
 
-  const handleChangeColorPicker = (id, type) => (e) => {
-    console.log(type, e.target.value);
-    console.log(colorPicker, "change before");
-    setColorPicker((colorPicker) => ({ ...colorPicker, fgfd: e.target.value }));
+  const handleChangeColor = (id, type) => (e) => {
+    // console.log(colorPicker, "change before");
+    setColorPicker((colorPicker) => ({
+      ...colorPicker,
+      [type]: e.target.value,
+    }));
 
     console.log(colorPicker, "onchange after");
-    alert(type + id.toString());
   };
 
-  // console.log(colorPicker, "dgfd");
+  // console.log(colorPicker, "outside event");
 
   return (
     <>
@@ -77,7 +79,7 @@ const ColorsPlateView = () => {
                 type="color"
                 value={colorPicker?.primary}
                 className="rounded cursor-pointer w-7"
-                onChange={handleChangeColorPicker(colorPicker.id, "primary")}
+                onChange={handleChangeColor(colorPicker.id, "primary")}
               />
             </div>
           </div>
@@ -93,7 +95,7 @@ const ColorsPlateView = () => {
                 type="color"
                 value={colorPicker?.secondary}
                 className="rounded cursor-pointer w-7"
-                onChange={handleChangeColorPicker(colorPicker.id, "secondary")}
+                onChange={handleChangeColor(colorPicker.id, "secondary")}
               />
             </div>
           </div>

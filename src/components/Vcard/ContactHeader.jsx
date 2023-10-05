@@ -40,10 +40,9 @@ const ContactHeader = ({ icon, secondaryColor }) => {
   return (
     <>
       <div
+        style={{ background: secondaryColor }}
         className={
-          secondaryColor &&
-          secondaryColor +
-            " w-[35px] h-[35px] flex items-center justify-center rounded-md"
+          "w-[35px] h-[35px] flex items-center justify-center rounded-md"
         }
       >
         {icons[icon]}
