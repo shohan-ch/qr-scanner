@@ -6,6 +6,7 @@ import InputField from "../Forms/InputField";
 import Switch from "../Forms/Switch";
 import TemplateList from "../List/TemplateList";
 import TemplatePreviewOne from "../Templates/TemplatePreviewOne";
+import VcardInformation from "./VcardInformation";
 const VcardIndex = () => {
   const selectedTemplate = useSelectedTemplate();
   const [pickerColor, setPickerColor] = useState({});
@@ -21,8 +22,8 @@ const VcardIndex = () => {
 
           <Switch label="Autocomplete fields" />
           <TemplateList templateList={templateListData} />
-
           <ColorsPlateView setPickerColor={setPickerColor} />
+          <VcardInformation />
         </div>
         <div className="previewSection">
           <TemplatePreviewOne pickerColor={pickerColor} />
