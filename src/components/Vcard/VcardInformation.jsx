@@ -1,5 +1,6 @@
 import { useFormField, useFormFieldDispatch } from "../Context/FormDataContext";
 import InputField from "../Forms/InputField";
+import SelectField from "../Forms/SelectField";
 
 const VcardInformation = () => {
   const formDispatch = useFormFieldDispatch();
@@ -14,6 +15,17 @@ const VcardInformation = () => {
       },
     });
   };
+
+  const handleSelectChange = (e) => {
+    const { name, value } = e.target;
+    formDispatch({
+      type: "add",
+      payload: {
+        [name]: value,
+      },
+    });
+  };
+
   console.log(formFields, "sdsads");
   return (
     <>
@@ -39,6 +51,15 @@ const VcardInformation = () => {
             name="title"
             handleChange={handleInputChange}
             className="bg-white rounded-2xl"
+          />
+        </div>
+
+        <div className="w-[15%]">
+          <SelectField
+            name="alignment"
+            label="Text align"
+            values={["center", "left", "right"]}
+            handleChange={handleSelectChange}
           />
         </div>
       </div>
