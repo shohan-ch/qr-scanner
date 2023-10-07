@@ -1,5 +1,5 @@
 const SelectField = (props) => {
-  const { values, handleChange, label, name } = props;
+  const { values, handleChange, label, name, className } = props;
 
   return (
     <>
@@ -12,8 +12,9 @@ const SelectField = (props) => {
       <select
         name={name}
         onChange={handleChange}
-        id="countries"
-        className=" capitalize border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+        className={`${
+          className && className
+        } capitalize border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5`}
       >
         {values &&
           values.map((value, index) => (

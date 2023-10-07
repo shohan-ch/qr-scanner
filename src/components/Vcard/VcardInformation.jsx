@@ -1,6 +1,7 @@
 import { useFormField, useFormFieldDispatch } from "../Context/FormDataContext";
 import InputField from "../Forms/InputField";
 import SelectField from "../Forms/SelectField";
+import TelephoneAddView from "./TelephoneAddView";
 
 const VcardInformation = () => {
   const formDispatch = useFormFieldDispatch();
@@ -53,7 +54,6 @@ const VcardInformation = () => {
             className="bg-white rounded-2xl"
           />
         </div>
-
         <div className="w-[15%]">
           <SelectField
             name="alignment"
@@ -62,6 +62,8 @@ const VcardInformation = () => {
             handleChange={handleSelectChange}
           />
         </div>
+
+        <TelephoneAddView />
       </div>
     </>
   );
