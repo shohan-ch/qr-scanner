@@ -6,7 +6,6 @@ import { useState } from "react";
 
 const TelephoneAddView = () => {
   const formDispatch = useFormFieldDispatch();
-  const [phnContainerCount, setPhnContainerCount] = useState(1);
   const [phnContainerList, setPhnContainerList] = useState([1]);
 
   const handleInputChange = (e) => {
@@ -29,9 +28,7 @@ const TelephoneAddView = () => {
   };
 
   const handleAddClick = () => {
-    // alert(123);
-    setPhnContainerCount(phnContainerCount + 2);
-    setPhnContainerList([...phnContainerList, phnContainerCount]);
+    setPhnContainerList([...phnContainerList, phnContainerList.length + 1]);
   };
 
   console.log(phnContainerList, "con");
