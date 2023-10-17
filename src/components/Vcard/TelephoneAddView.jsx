@@ -6,7 +6,8 @@ import { useState } from "react";
 
 const TelephoneAddView = () => {
   const formDispatch = useFormFieldDispatch();
-  const [phnContainerList, setPhnContainerList] = useState([1]);
+  const [containerCount, setContainerCount] = useState(1);
+  const [containerList, setContainerList] = useState([1]);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -28,27 +29,27 @@ const TelephoneAddView = () => {
   };
 
   const handleAddClick = () => {
-    setPhnContainerList([...phnContainerList, phnContainerList.length + 1]);
+    setContainerList([...containerList, containerCount + 1]);
+    setContainerCount(containerCount + 1);
   };
 
-  console.log(phnContainerList, "con");
+  const handleContainerRemove = (id) => () => {
+    alert(id);
+    setContainerList(containerList.filter((item) => item != id));
+  };
+
+  console.log(containerList, "con");
   return (
     <>
       <div className="mt-5">
-        {phnContainerList &&
-          phnContainerList.map((list, index) => (
-            <div id="container" className="mt-4" key={index}>
+        {containerList &&
+          containerList.map((item, index) => (
+            <div id="container" className="mt-4" key={item}>
               <p>Telephone</p>
               <div className="flex items-center">
                 <SelectField
                   name="telephoneType"
-                  values={[
-                    "Mobile phone",
-                    "handleInputChangeome",
-                    "Work",
-                    "Fax",
-                    "Other",
-                  ]}
+                  values={["Mobile phone", "Work", "Fax", "Other"]}
                   handleChange={handleSelectChange}
                   className="bg-white h-[48px] mt-3 mr-2"
                 />
@@ -65,7 +66,7 @@ const TelephoneAddView = () => {
                   handleChange={handleInputChange}
                   className="mr-2 bg-white rounded-full"
                 />
-                <div>X</div>
+                <button onClick={handleContainerRemove(item)}>X</button>
               </div>
             </div>
           ))}
