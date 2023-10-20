@@ -35,6 +35,16 @@ const formFieldsReducer = (state, action) => {
       };
     }
 
+    case "addMultiple": {
+      let prevState = { ...state };
+      let arr = [...state[action.payload.type]];
+      arr[action.payload.index] = {
+        ...arr[action.payload.index],
+        [action.payload.name]: action.payload.value,
+      };
+      return arr;
+    }
+
     default:
       break;
   }
