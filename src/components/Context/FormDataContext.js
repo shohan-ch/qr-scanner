@@ -36,12 +36,40 @@ const formFieldsReducer = (state, action) => {
     }
 
     case "addMultiple": {
-      let prevState = { ...state };
-      let arr = [...state[action.payload.type]];
-      arr[action.payload.index] = {
-        ...arr[action.payload.index],
-        [action.payload.name]: action.payload.value,
+      const { category, index, name, value } = action.payload;
+      // return;
+      console.log(action, "obj");
+      let prevState = {
+        ...state,
+        [category]: [...state[category], [{ name: "shoa" }]],
       };
+
+      console.log(prevState, "sdsadsad");
+
+      return prevState;
+      // console.log({ ...state[category] }, "cat");
+
+      return;
+
+      let arr = {
+        ...state,
+        [action.payload.category]: [
+          [...state.action.payload.category],
+          {
+            [action.payload.name]: action.payload.value,
+          },
+        ],
+      };
+
+      console.log(arr, "form context");
+
+      // arr[action.payload.category] = [
+      //   {
+      //     // ...arr[action.payload.category],
+      //     [action.payload.name]: action.payload.value,
+      //   },
+      // ];
+      // console.log(arr, "from context");
       return arr;
     }
 
