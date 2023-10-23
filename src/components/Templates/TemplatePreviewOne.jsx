@@ -3,7 +3,7 @@ import ContactHeader from "../Vcard/ContactHeader";
 const TemplatePreviewOne = (props) => {
   const { pickerColor, primaryCOlor, secondaryColor, name, mobile } = props;
   const icons = ["mobile", "email", "location"];
-  console.log(pickerColor, "preview");
+  // console.log(pickerColor, "preview");
   return (
     <>
       <div className="w-full text-center ">

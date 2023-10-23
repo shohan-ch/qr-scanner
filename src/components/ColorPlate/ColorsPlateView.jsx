@@ -11,7 +11,7 @@ const ColorsPlateView = (props, ref) => {
       return selectedColor.split("_")[1] == color.id;
     });
     setColorPicker(colorPickup);
-    console.log("effect run");
+    // console.log("effect run");
   }, [selectedColor]);
 
   useEffect(() => {

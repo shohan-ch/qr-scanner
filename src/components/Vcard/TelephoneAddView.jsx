@@ -12,11 +12,22 @@ const TelephoneAddView = () => {
   const [telephones, setTelephones] = useState([]);
   const handleInputChange = (index) => (e) => {
     const { name, value } = e.target;
-    setTelephones((prevState) => {
-      let updatedContacts = [...prevState];
-      updatedContacts[index] = { ...updatedContacts[index], [name]: value };
-      return updatedContacts;
+
+    formDispatch({
+      type: "addMultiple",
+      payload: {
+        index,
+        name,
+        value,
+        category: "phones",
+      },
     });
+
+    // setTelephones((prevState) => {
+    //   let updatedContacts = [...prevState];
+    //   updatedContacts[index] = { ...updatedContacts[index], [name]: value };
+    //   return updatedContacts;
+    // });
   };
 
   const handleSelectChange = (index) => (e) => {
