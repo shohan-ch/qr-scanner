@@ -58,9 +58,15 @@ const TelephoneAddView = () => {
 
   const handleContainerRemove = (id) => () => {
     setContainerList(containerList.filter((item) => item != id));
+    formDispatch({
+      type: "deleteMultiple",
+      payload: {
+        id,
+        category: "phones",
+      },
+    });
   };
 
-  console.log(telephones);
   // console.log(containerList, "con");
   return (
     <>
@@ -73,20 +79,19 @@ const TelephoneAddView = () => {
                 <SelectField
                   name={"type"}
                   values={["Mobile phone", "Work", "Fax", "Other"]}
-                  handleChange={handleSelectChange(index)}
+                  handleChange={handleSelectChange(item)}
                   className="bg-white h-[48px] mt-3 mr-2"
                 />
-
                 <InputField
                   placeholder="Label..."
                   name="label"
-                  handleChange={handleInputChange(index)}
+                  handleChange={handleInputChange(item)}
                   className="mr-2 bg-white rounded-full"
                 />
                 <InputField
                   placeholder="Eg 00000-000"
                   name="mobile"
-                  handleChange={handleInputChange(index)}
+                  handleChange={handleInputChange(item)}
                   className="mr-2 bg-white rounded-full"
                 />
                 <button onClick={handleContainerRemove(item)}>X</button>
