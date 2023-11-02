@@ -44,22 +44,27 @@ const formFieldsReducer = (state, action) => {
       };
       // newState[category][index] = {
       //   ...newState[category][index],
+      //   id: index,
       //   [name]: value,
       // };
-      newState[category][index] = {
-        ...newState[category][index],
-        id: index,
-        [name]: value,
-      };
+      newState[category] = [
+        {
+          ...newState[category],
+          id: index,
+          [name]: value,
+        },
+      ];
+
       console.log(newState, "new state");
       return newState;
     }
 
     case "deleteMultiple": {
       const { id, category } = action.payload;
+      alert(id);
       console.log(state[category], "prev state ");
 
-      let filterArray = state[category].filter((item, index) => item.id != id);
+      let filterArray = state[category].filter((item, index) => index != id);
 
       return { ...state, [category]: filterArray };
       let newState = {
