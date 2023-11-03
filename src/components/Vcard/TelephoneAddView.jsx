@@ -42,12 +42,6 @@ const TelephoneAddView = () => {
         category: "phones",
       },
     });
-
-    // setTelephones((prevState) => {
-    //   let updatedContacts = [...prevState];
-    //   updatedContacts[index] = { ...updatedContacts[index], [name]: value };
-    //   return updatedContacts;
-    // });
   };
 
   const handleAddClick = () => {
