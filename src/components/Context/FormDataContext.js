@@ -42,36 +42,14 @@ const formFieldsReducer = (state, action) => {
       const updatedCategoryArray = categoryArray.map((item) =>
         item.id === index ? { ...item, [name]: value } : item
       );
-
       let newState = {
         ...state,
         [category]: categoryArray.some((item) => item.id === index)
           ? updatedCategoryArray
           : [...updatedCategoryArray, { id: index, [name]: value }],
       };
-
-      console.log(newState, "new state");
-      return newState;
-
-      // let newState = {
-      //   ...state,
-      //   [category]: [...categoryArray],
-      // };
-      // // newState[category][index] = {
-      // //   ...newState[category][index],
-      // //   id: index,
-      // //   [name]: value,
-      // // };
-      // newState[category] = [
-      //   ...newState[category],
-      //   {
-      //     id: index,
-      //     [name]: value,
-      //   },
-      // ];
-
       // console.log(newState, "new state");
-      // return newState;
+      return newState;
     }
 
     case "deleteMultiple": {
@@ -81,17 +59,7 @@ const formFieldsReducer = (state, action) => {
         return item.id != id;
       });
       let newState = { ...state, [category]: filterArray };
-      console.log(newState, "new");
-      return newState;
-      // let newState = {
-      //   ...state,
-      //   [category]: state[category].filter((item, index) => {
-      //     console.log(item, id);
-      //     return item[id].id != id;
-      //   }),
-      // };
-      console.log(newState, "New state after");
-      // alert(action.payload.id);
+      // console.log(newState, "new");
       return newState;
     }
 

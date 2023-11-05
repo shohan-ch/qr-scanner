@@ -6,13 +6,10 @@ import { useState } from "react";
 
 const TelephoneAddView = () => {
   const formDispatch = useFormFieldDispatch();
-  const formFields = useFormField();
   const [containerCount, setContainerCount] = useState(1);
   const [containerList, setContainerList] = useState([1]);
-  const [telephones, setTelephones] = useState([]);
   const handleInputChange = (index) => (e) => {
     const { name, value } = e.target;
-
     formDispatch({
       type: "addMultiple",
       payload: {
@@ -22,7 +19,6 @@ const TelephoneAddView = () => {
         category: "phones",
       },
     });
-
     // setTelephones((prevState) => {
     //   let updatedContacts = [...prevState];
     //   updatedContacts[index] = { ...updatedContacts[index], [name]: value };
@@ -47,7 +43,6 @@ const TelephoneAddView = () => {
   const handleAddClick = () => {
     setContainerList([...containerList, containerCount + 1]);
     setContainerCount(containerCount + 1);
-    // setTelephones([...telephones, {}]);
   };
 
   const handleContainerRemove = (id) => () => {
