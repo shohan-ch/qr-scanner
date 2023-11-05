@@ -48,7 +48,7 @@ const formFieldsReducer = (state, action) => {
           ? updatedCategoryArray
           : [...updatedCategoryArray, { id: index, [name]: value }],
       };
-      // console.log(newState, "new state");
+      console.log(newState, "new state");
       return newState;
     }
 
