@@ -1,6 +1,7 @@
 import { useFormField, useFormFieldDispatch } from "../Context/FormDataContext";
 import InputField from "../Forms/InputField";
 import SelectField from "../Forms/SelectField";
+import LocationInputContainer from "../Utils/LocationInputContainer";
 import MultipleInputField from "../Utils/MultipleInputField";
 import TelephoneAddView from "../Utils/TelephoneAddView";
 
@@ -68,7 +69,8 @@ const VcardInformation = () => {
         <MultipleInputField category="Emails" />
         <MultipleInputField category="websites" />
 
-        {/* <TelephoneAddView /> */}
+        {/* LocationInput */}
+        <LocationInputContainer />
       </div>
     </>
   );
