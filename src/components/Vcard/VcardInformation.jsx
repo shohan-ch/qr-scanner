@@ -1,7 +1,7 @@
 import { useFormField, useFormFieldDispatch } from "../Context/FormDataContext";
 import InputField from "../Forms/InputField";
 import SelectField from "../Forms/SelectField";
-import LocationInputContainer from "../Utils/LocationInputContainer";
+import LocationInputContainer from "../Location/LocationInputContainer";
 import MultipleInputField from "../Utils/MultipleInputField";
 import TelephoneAddView from "../Utils/TelephoneAddView";
 
