@@ -1,4 +1,5 @@
 import ButtonRadio from "../Forms/ButtonRadio";
+import SelectField from "../Forms/SelectField";
 
 const LocationInputContainer = () => {
   const buttonRadioValues = ["complete", "url"];
@@ -17,6 +18,14 @@ const LocationInputContainer = () => {
             />
           ))}
       </div>
+
+      <SelectField
+        values={["show map", "hide link", "show link"]}
+        handleChange={(e) => console.log(e.target.value)}
+        label="Location options"
+        className="bg-white"
+        name="mapShowOption"
+      />
     </>
   );
 };
