@@ -1,12 +1,16 @@
+import { useState } from "react";
 import ButtonRadio from "../Forms/ButtonRadio";
 import SelectField from "../Forms/SelectField";
+import CompleteLocationField from "./CompleteLocationField";
+import UrlLocationField from "./UrlLocationField";
 
 const LocationInputContainer = () => {
+  const [locationType, setLocationType] = useState("");
   const buttonRadioValues = ["complete", "url"];
 
   return (
     <>
-      <div className="flex justify-center mt-4 gap-x-5">
+      <div className="flex justify-between px-2 mt-4 gap-x-5">
         {buttonRadioValues &&
           buttonRadioValues.map((value, index) => (
             <ButtonRadio
@@ -14,18 +18,15 @@ const LocationInputContainer = () => {
               label={value}
               value={value}
               groupName="locationButtonInput"
-              handleChange={(e) => console.log(e.target.value)}
+              handleChange={(e) => setLocationType(e.target.value)}
             />
           ))}
       </div>
-
-      <SelectField
-        values={["show map", "hide link", "show link"]}
-        handleChange={(e) => console.log(e.target.value)}
-        label="Location options"
-        className="bg-white"
-        name="mapShowOption"
-      />
+      {locationType == "complete" ? (
+        <CompleteLocationField />
+      ) : (
+        <UrlLocationField />
+      )}
     </>
   );
 };
