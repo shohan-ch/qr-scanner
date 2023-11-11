@@ -1,5 +1,6 @@
 const InputField = (props) => {
-  const { placeholder, handleChange, value, className, name } = props;
+  const { placeholder, handleChange, value, className, name, isDisable } =
+    props;
   return (
     <>
       <input
@@ -12,6 +13,7 @@ const InputField = (props) => {
         onChange={handleChange}
         name={name}
         value={value}
+        disabled={isDisable}
       />
     </>
   );
