@@ -11,6 +11,7 @@ const InputField = (props) => {
         placeholder={placeholder}
         onChange={handleChange}
         name={name}
+        value={value}
       />
     </>
   );

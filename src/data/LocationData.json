@@ -5,14 +5,16 @@
     "number": "15",
     "postalCode": "001",
     "city": "Habiganj",
+    "state":"Sylhet",
     "country": "Bangladesh"
   },
   {
     "id": 2,
-    "street": "mirpur",
+    "street": "mirp",
     "number": "25",
     "postalCode": "10001",
     "city": "New York",
+    "state":"Ny",
     "country": "USA"
   },
   {
@@ -21,6 +23,7 @@
     "number": "10",
     "postalCode": "75008",
     "city": "Paris",
+    "state":"Fra",
     "country": "France"
   },
   {
@@ -29,6 +32,7 @@
     "number": "45",
     "postalCode": "W1D 1AW",
     "city": "London",
+    "state":"Ukas",
     "country": "UK"
   },
   {
@@ -37,6 +41,7 @@
     "number": "7",
     "postalCode": "150-0002",
     "city": "Tokyo",
+    "state":"Jap",
     "country": "Japan"
   },
   {
@@ -45,6 +50,7 @@
     "number": "20",
     "postalCode": "30124",
     "city": "Venice",
+    "state":"Ita",
     "country": "Italy"
   },
   {
@@ -53,6 +59,7 @@
     "number": "12",
     "postalCode": "10178",
     "city": "Berlin",
+    "state":"Hiko",
     "country": "Germany"
   },
   {
@@ -61,6 +68,7 @@
     "number": "2",
     "postalCode": "2000",
     "city": "Sydney",
+    "state":"Mak",
     "country": "Australia"
   },
   {
@@ -69,6 +77,7 @@
     "number": "30",
     "postalCode": "22070-011",
     "city": "Rio de Janeiro",
+    "state":"Zil",
     "country": "Brazil"
   },
   {
@@ -77,6 +86,7 @@
     "number": "5",
     "postalCode": "109012",
     "city": "Moscow",
+    "state":"SSia",
     "country": "Russia"
   }
 ]
