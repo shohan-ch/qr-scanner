@@ -1,6 +1,7 @@
 import { useFormField, useFormFieldDispatch } from "../Context/FormDataContext";
 import InputField from "../Forms/InputField";
 import SelectField from "../Forms/SelectField";
+import TextArea from "../Forms/TextArea";
 import LocationInputContainer from "../Location/LocationInputContainer";
 import MultipleInputField from "../Utils/MultipleInputField";
 import TelephoneAddView from "../Utils/TelephoneAddView";
@@ -71,6 +72,10 @@ const VcardInformation = () => {
 
         {/* LocationInput */}
         <LocationInputContainer />
+        <TextArea
+          label="summary"
+          handleChange={(e) => console.log(e.target.value)}
+        />
       </div>
     </>
   );
