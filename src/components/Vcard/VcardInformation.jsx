@@ -3,6 +3,7 @@ import InputField from "../Forms/InputField";
 import SelectField from "../Forms/SelectField";
 import TextArea from "../Forms/TextArea";
 import LocationInputContainer from "../Location/LocationInputContainer";
+import ImageUploadContainer from "../Utils/ImageUploadContainer";
 import MultipleInputField from "../Utils/MultipleInputField";
 import TelephoneAddView from "../Utils/TelephoneAddView";
 
@@ -28,6 +29,11 @@ const VcardInformation = () => {
         [name]: value,
       },
     });
+  };
+
+  const handleImageUpload = (e) => {
+    console.log(e);
+    // e.target.files;
   };
 
   // console.log(formFields, "sdsads");
@@ -76,6 +82,7 @@ const VcardInformation = () => {
           label="summary"
           handleChange={(e) => console.log(e.target.value)}
         />
+        <ImageUploadContainer handleChange={handleImageUpload} />
       </div>
     </>
   );
