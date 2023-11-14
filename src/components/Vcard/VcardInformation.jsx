@@ -32,8 +32,8 @@ const VcardInformation = () => {
   };
 
   const handleImageUpload = (e) => {
-    console.log(e);
-    // e.target.files;
+    alert(126546543);
+    console.log(e.target.files[0]);
   };
 
   // console.log(formFields, "sdsads");
