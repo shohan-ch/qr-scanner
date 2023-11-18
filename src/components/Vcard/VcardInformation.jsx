@@ -7,6 +7,7 @@ import LocationInputContainer from "../Location/LocationInputContainer";
 import ImageUploadContainer from "../Utils/ImageUploadContainer";
 import MultipleInputField from "../Utils/MultipleInputField";
 import TelephoneAddView from "../Utils/TelephoneAddView";
+import CompaniesAddContainer from "../Utils/CompaniesAddContainer";
 
 const VcardInformation = () => {
   const formDispatch = useFormFieldDispatch();
@@ -79,6 +80,8 @@ const VcardInformation = () => {
           handleChange={(e) => console.log(e.target.value)}
         />
         <ImageUploadContainer />
+
+        <CompaniesAddContainer />
       </div>
     </>
   );
