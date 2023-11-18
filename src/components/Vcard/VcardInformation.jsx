@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useFormField, useFormFieldDispatch } from "../Context/FormDataContext";
 import InputField from "../Forms/InputField";
 import SelectField from "../Forms/SelectField";
@@ -29,11 +30,6 @@ const VcardInformation = () => {
         [name]: value,
       },
     });
-  };
-
-  const handleImageUpload = (e) => {
-    alert(126546543);
-    console.log(e.target.files[0]);
   };
 
   // console.log(formFields, "sdsads");
@@ -82,7 +78,7 @@ const VcardInformation = () => {
           label="summary"
           handleChange={(e) => console.log(e.target.value)}
         />
-        <ImageUploadContainer handleChange={handleImageUpload} />
+        <ImageUploadContainer />
       </div>
     </>
   );
