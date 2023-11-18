@@ -7,9 +7,11 @@ const ImageUploadContainer = (props) => {
   const handleImageUpload = (e) => {
     console.log(e.target.files[0]);
     let file = e.target.files[0];
-    file.id = imageCount + 1;
-    setImages([...images, file]);
-    setImageCount(imageCount + 1);
+    if (file) {
+      file.id = imageCount + 1;
+      setImages([...images, file]);
+      setImageCount(imageCount + 1);
+    }
   };
 
   const handleImageRemove = (id) => {
