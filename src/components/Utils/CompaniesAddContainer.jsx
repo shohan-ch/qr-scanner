@@ -10,7 +10,7 @@ const CompaniesAddContainer = () => {
     setCompanies([...companies, companies.length + 1]);
   };
 
-  const handleProfessionChange = (index) => (e) => {
+  const handleProfessionAdd = (index) => (e) => {
     const { name, value } = e.target;
     let professionArray = professions.map((profession) => {
       return profession.id === index
@@ -25,20 +25,29 @@ const CompaniesAddContainer = () => {
     setProfessions(updateProfessionArray);
   };
 
-  console.log(professions);
+  const handleRemoveCompanies = (index) => () => {
+    // alert(index);
+    setProfessions(professions.filter((item) => item.id !== index));
+    setCompanies(companies.filter((item) => item !== index));
+  };
 
   return (
     <>
       {companies &&
         companies.map((company, index) => (
-          <div className="mx-2 mt-7">
+          <div key={company} className="mx-2 mt-7">
             <div className="flex items-center justify-between">
-              <h2>Company {company}</h2>
-              <Button className="mt-0">Delete</Button>
+              <h2>Company {index + 1}</h2>
+              <Button
+                className="mt-0"
+                handleClick={handleRemoveCompanies(company)}
+              >
+                Delete
+              </Button>
             </div>
             <hr className="mt-3 mb-0 divide-x" />
             <InputField
-              handleChange={handleProfessionChange(index)}
+              handleChange={handleProfessionAdd(company)}
               name="company"
               placeholder="Company Name"
               className="bg-white"
@@ -47,7 +56,7 @@ const CompaniesAddContainer = () => {
               <div>
                 <h2>Profession</h2>
                 <InputField
-                  handleChange={handleProfessionChange(index)}
+                  handleChange={handleProfessionAdd(company)}
                   name="profession"
                   className="bg-white"
                   placeholder="Name"
