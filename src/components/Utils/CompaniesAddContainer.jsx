@@ -26,7 +26,6 @@ const CompaniesAddContainer = () => {
   };
 
   const handleRemoveCompanies = (index) => () => {
-    // alert(index);
     setProfessions(professions.filter((item) => item.id !== index));
     setCompanies(companies.filter((item) => item !== index));
   };
