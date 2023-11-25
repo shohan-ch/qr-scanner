@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { memo, useState } from "react";
 import InputField from "../Forms/InputField";
 import SocialNetworkList from "./SocialNetworkList";
 
@@ -26,7 +26,7 @@ const SocialNetworkContainer = () => {
     setSocialList(socialList.filter((social) => social.name !== socialName));
   };
 
-  console.log(socialInfo);
+  console.log(socialInfo, "social");
   return (
     <>
       <div className="mx-2 space-y-7 mt-7">
@@ -69,4 +69,4 @@ const SocialNetworkContainer = () => {
   );
 };
 
-export default SocialNetworkContainer;
+export default memo(SocialNetworkContainer);

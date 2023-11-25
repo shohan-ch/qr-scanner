@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import { useFormField, useFormFieldDispatch } from "../Context/FormDataContext";
 import InputField from "../Forms/InputField";
 import SelectField from "../Forms/SelectField";
@@ -14,7 +14,7 @@ const VcardInformation = () => {
   const formDispatch = useFormFieldDispatch();
   const formFields = useFormField();
 
-  const handleInputChange = (e) => {
+  const handleInputChange = useCallback((e) => {
     const { name, value } = e.target;
     formDispatch({
       type: "add",
@@ -22,7 +22,7 @@ const VcardInformation = () => {
         [name]: value,
       },
     });
-  };
+  }, []);
 
   const handleSelectChange = (e) => {
     const { name, value } = e.target;
