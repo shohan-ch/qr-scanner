@@ -90,6 +90,16 @@ const formFieldsReducer = (state, action) => {
       return newState;
     }
 
+    case "deleteProfession": {
+      const { id } = action.payload;
+      return {
+        ...state,
+        profession: state.profession.filter(
+          (profession) => profession.id !== id
+        ),
+      };
+    }
+
     default:
       break;
   }

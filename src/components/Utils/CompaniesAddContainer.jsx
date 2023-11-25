@@ -14,7 +14,6 @@ const CompaniesAddContainer = () => {
 
   const handleProfessionAdd = (id) => (e) => {
     const { name, value } = e.target;
-
     formDispatch({
       type: "addProfession",
       payload: {
@@ -24,22 +23,26 @@ const CompaniesAddContainer = () => {
       },
     });
 
-    let professionArray = professions.map((profession) => {
-      return profession.id === id
-        ? { ...profession, [name]: value }
-        : profession;
-    });
+    // let professionArray = professions.map((profession) => {
+    //   return profession.id === id
+    //     ? { ...profession, [name]: value }
+    //     : profession;
+    // });
+    // let updateProfessionArray = professions.some((item) => item.id === id)
+    //   ? professionArray
+    //   : [...professionArray, { id: id, [name]: value }];
 
-    let updateProfessionArray = professions.some((item) => item.id === id)
-      ? professionArray
-      : [...professionArray, { id: id, [name]: value }];
-
-    setProfessions(updateProfessionArray);
+    // setProfessions(updateProfessionArray);
   };
 
-  const handleRemoveCompanies = (index) => () => {
-    setProfessions(professions.filter((item) => item.id !== index));
-    setCompanies(companies.filter((item) => item !== index));
+  const handleRemoveCompanies = (id) => () => {
+    formDispatch({
+      type: "deleteProfession",
+      payload: {
+        id,
+      },
+    });
+    setCompanies(companies.filter((item) => item !== id));
   };
 
   // console.log(professions, "From Company");
