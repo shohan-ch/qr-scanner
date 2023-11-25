@@ -1,5 +1,5 @@
 const TextArea = (props) => {
-  const { handleChange, label } = props;
+  const { handleChange, label, name } = props;
   return (
     <>
       <div className="px-2 mt-3">
@@ -9,6 +9,7 @@ const TextArea = (props) => {
         <textarea
           onChange={handleChange}
           id="message"
+          name={name}
           rows="4"
           class="block p-2.5 w-full text-sm rounded-lg border border-gray-300"
           placeholder="Write your thoughts here..."

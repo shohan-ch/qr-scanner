@@ -14,7 +14,7 @@ const VcardInformation = () => {
   const formDispatch = useFormFieldDispatch();
   const formFields = useFormField();
 
-  const handleInputChange = useCallback((e) => {
+  const handleInputChange = (e) => {
     const { name, value } = e.target;
     formDispatch({
       type: "add",
@@ -22,7 +22,7 @@ const VcardInformation = () => {
         [name]: value,
       },
     });
-  }, []);
+  };
 
   const handleSelectChange = (e) => {
     const { name, value } = e.target;
@@ -34,7 +34,7 @@ const VcardInformation = () => {
     });
   };
 
-  // console.log(formFields, "sdsads");
+  console.log(formFields, "Form vcard");
   return (
     <>
       <div className="px-5 py-10 mt-10 bg-white">
@@ -78,7 +78,8 @@ const VcardInformation = () => {
         <LocationInputContainer />
         <TextArea
           label="summary"
-          handleChange={(e) => console.log(e.target.value)}
+          name="summary"
+          handleChange={handleInputChange}
         />
         <ImageUploadContainer />
         <CompaniesAddContainer />

@@ -1,26 +1,38 @@
 import { useState } from "react";
 import InputField from "../Forms/InputField";
 import Button from "./Button";
+import { useFormField, useFormFieldDispatch } from "../Context/FormDataContext";
 
 const CompaniesAddContainer = () => {
   const [companies, setCompanies] = useState([1]);
   const [professions, setProfessions] = useState([]);
 
+  const formDispatch = useFormFieldDispatch();
   const handleAddCompanies = () => {
     setCompanies([...companies, companies.length + 1]);
   };
 
-  const handleProfessionAdd = (index) => (e) => {
+  const handleProfessionAdd = (id) => (e) => {
     const { name, value } = e.target;
+
+    formDispatch({
+      type: "addProfession",
+      payload: {
+        name,
+        value,
+        id,
+      },
+    });
+
     let professionArray = professions.map((profession) => {
-      return profession.id === index
+      return profession.id === id
         ? { ...profession, [name]: value }
         : profession;
     });
 
-    let updateProfessionArray = professions.some((item) => item.id === index)
+    let updateProfessionArray = professions.some((item) => item.id === id)
       ? professionArray
-      : [...professionArray, { id: index, [name]: value }];
+      : [...professionArray, { id: id, [name]: value }];
 
     setProfessions(updateProfessionArray);
   };
@@ -30,6 +42,8 @@ const CompaniesAddContainer = () => {
     setCompanies(companies.filter((item) => item !== index));
   };
 
+  // console.log(professions, "From Company");
+  console.log(useFormField(), "Form comapny dispatch");
   return (
     <>
       {companies &&

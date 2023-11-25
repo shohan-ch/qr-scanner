@@ -69,7 +69,25 @@ const formFieldsReducer = (state, action) => {
       return locationType === "complete"
         ? { ...state, location: { locationType, location } }
         : { ...state, location: { locationType, url } };
-      // return { ...state, location: { locationType, location } };
+    }
+
+    case "addProfession": {
+      const { id, name, value } = action.payload;
+      let professionArray = state.profession || [];
+
+      let updateProfessionArray = professionArray.map((profession) => {
+        return profession.id === id
+          ? { ...profession, [name]: value }
+          : profession;
+      });
+
+      let newState = {
+        ...state,
+        profession: professionArray.some((item) => item.id === id)
+          ? updateProfessionArray
+          : [...updateProfessionArray, { id: id, [name]: value }],
+      };
+      return newState;
     }
 
     default:
