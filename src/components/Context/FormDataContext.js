@@ -63,6 +63,15 @@ const formFieldsReducer = (state, action) => {
       return newState;
     }
 
+    case "addLocation": {
+      const { locationType, location, url } = action.payload;
+      delete state.location;
+      return locationType === "complete"
+        ? { ...state, location: { locationType, location } }
+        : { ...state, location: { locationType, url } };
+      // return { ...state, location: { locationType, location } };
+    }
+
     default:
       break;
   }

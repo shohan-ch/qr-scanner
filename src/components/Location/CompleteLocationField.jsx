@@ -3,11 +3,14 @@ import SelectField from "../Forms/SelectField";
 import Button from "../Utils/Button";
 import data from "../../data/LocationData.json";
 import { useState } from "react";
+import { useFormField, useFormFieldDispatch } from "../Context/FormDataContext";
 
 const CompletelocationsField = () => {
   const [locations, setlocations] = useState("");
   const [selectField, setSelectField] = useState(null);
   const [isDisable, setIsDisable] = useState(false);
+
+  const formDispatch = useFormFieldDispatch();
   const handlelocationsChange = (e) => {
     setlocations(
       data.filter((location, index) => location.street.match(e.target.value))
@@ -15,6 +18,14 @@ const CompletelocationsField = () => {
   };
 
   const handleSeleclocation = (street) => () => {
+    let location = locations.find((item) => item.street == street);
+    formDispatch({
+      type: "addLocation",
+      payload: {
+        locationType: "complete",
+        location,
+      },
+    });
     setlocations(locations.find((item) => item.street == street));
     setIsDisable(true);
   };
@@ -33,7 +44,9 @@ const CompletelocationsField = () => {
     }
   };
 
-  console.log(locations);
+  console.log(useFormField(), "FormField");
+
+  // console.log(locations);
   return (
     <>
       <div className="container px-2 mt-4">
