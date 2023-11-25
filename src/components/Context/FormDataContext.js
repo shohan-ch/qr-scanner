@@ -100,6 +100,37 @@ const formFieldsReducer = (state, action) => {
       };
     }
 
+    case "addSocialInfo": {
+      const { name, value, socialNetworkName } = action.payload;
+      let socialArray = state.socialNetworks || [];
+
+      let updateSocialArray = socialArray.map((social) => {
+        return social.name === socialNetworkName
+          ? { ...social, [name]: value }
+          : social;
+      });
+
+      let newState = {
+        ...state,
+        socialNetworks: socialArray.some(
+          (item) => item.name === socialNetworkName
+        )
+          ? updateSocialArray
+          : [...updateSocialArray, { name: socialNetworkName, [name]: value }],
+      };
+      return newState;
+    }
+
+    case "deleteSocialInfo": {
+      const { name } = action.payload;
+      return {
+        ...state,
+        socialNetworks: state.socialNetworks.filter(
+          (social) => social.name !== name
+        ),
+      };
+    }
+
     default:
       break;
   }
