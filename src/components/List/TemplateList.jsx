@@ -1,9 +1,10 @@
 import { forwardRef } from "react";
 import { useTemplateDispatch } from "../Context/TemplateListContext";
+import templateList from "../../data/templateList.json";
 
 const TemplateList = forwardRef((props, ref) => {
   const templateDispatch = useTemplateDispatch();
-  const { templateList } = props;
+  // const { templateList } = props;
 
   const handleChange = (e) => {
     templateDispatch({

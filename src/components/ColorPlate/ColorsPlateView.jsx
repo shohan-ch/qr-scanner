@@ -11,7 +11,6 @@ const ColorsPlateView = (props, ref) => {
       return selectedColor.split("_")[1] == color.id;
     });
     setColorPicker(colorPickup);
-    // console.log("effect run");
   }, [selectedColor]);
 
   useEffect(() => {
@@ -19,13 +18,10 @@ const ColorsPlateView = (props, ref) => {
   }, [colorPicker]);
 
   const handleChangeColor = (id, type) => (e) => {
-    // console.log(colorPicker, "change before");
     setColorPicker((colorPicker) => ({
       ...colorPicker,
       [type]: e.target.value,
     }));
-
-    console.log(colorPicker, "onchange after");
   };
 
   // console.log(colorPicker, "outside event");

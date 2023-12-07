@@ -34,7 +34,7 @@ const VcardInformation = () => {
     });
   };
 
-  console.log(formFields, "Form vcard");
+  // console.log(formFields, "Form vcard");
   return (
     <>
       <div className="px-5 py-10 mt-10 bg-white">

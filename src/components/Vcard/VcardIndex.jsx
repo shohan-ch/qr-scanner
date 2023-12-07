@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import templateListData from "../../data/templateList.json";
+// import templateListData from "../../data/templateList.json";
 import ColorsPlateView from "../ColorPlate/ColorsPlateView";
 import { useSelectedTemplate } from "../Context/TemplateListContext";
 import InputField from "../Forms/InputField";
@@ -11,6 +11,8 @@ const VcardIndex = () => {
   const selectedTemplate = useSelectedTemplate();
   const [pickerColor, setPickerColor] = useState({});
 
+  console.log(selectedTemplate, "From v card index");
+
   return (
     <>
       <section className="container flex items-center gap-5 px-5 py-10 mx-auto max-w-7xl bg-slate-100">
@@ -21,7 +23,7 @@ const VcardIndex = () => {
           <InputField placeholder="Name Of Qr Code" />
 
           <Switch label="Autocomplete fields" />
-          <TemplateList templateList={templateListData} />
+          <TemplateList />
           <ColorsPlateView setPickerColor={setPickerColor} />
           <VcardInformation />
         </div>
