@@ -1,7 +1,17 @@
-const ProfileImageContainer = () => {
+const ProfileImageContainer = (props) => {
+  const { handleChange } = props;
+
+  const handleProfileImgChange = (e) => {
+    alert("sfdsf");
+    console.log(e.target.files[0]);
+  };
+
   return (
     <>
-      <div className="relative border h-[65px] w-[65px]">
+      <div
+        onChange={handleProfileImgChange}
+        className="relative border h-[65px] w-[65px]"
+      >
         <input type="file" id="image" className="hidden appearance-none" />
         <label
           htmlFor="image"
