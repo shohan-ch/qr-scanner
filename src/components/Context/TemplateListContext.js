@@ -29,8 +29,8 @@ export const useTemplateDispatch = () => {
 const templateLisrReducer = (state, action) => {
   switch (action.type) {
     case "change": {
-      // alert("change");
-      return action.payload;
+      const { payload } = action;
+      return payload;
     }
 
     default: {

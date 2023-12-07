@@ -24,7 +24,7 @@ const TemplateList = forwardRef((props, ref) => {
                 id={"radio_" + index}
                 type="radio"
                 name="radio"
-                value={"template" + index}
+                value={"template_" + (index + 1)}
                 defaultChecked=""
                 onChange={handleChange}
                 ref={ref}
