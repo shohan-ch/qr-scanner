@@ -9,6 +9,7 @@ import MultipleInputField from "../Utils/MultipleInputField";
 import TelephoneAddView from "../Utils/TelephoneAddView";
 import CompaniesAddContainer from "../Utils/CompaniesAddContainer";
 import SocialNetworkContainer from "../SoicialNetwork/SocialNetworkContainer";
+import ProfileImageContainer from "../Utils/ProfileImageContainer";
 
 const VcardInformation = () => {
   const formDispatch = useFormFieldDispatch();
@@ -39,8 +40,8 @@ const VcardInformation = () => {
     <>
       <div className="px-5 py-10 mt-10 bg-white">
         <h3 className="mb-4 text-base font-semibold">Vcard Information</h3>
-        <p className="mb-3 text-base text-gray-400">About ypu *</p>
-
+        <p className="mb-3 text-base text-gray-400">About you *</p>
+        <ProfileImageContainer />
         <div className="flex gap-x-8">
           <InputField
             placeholder="Name"

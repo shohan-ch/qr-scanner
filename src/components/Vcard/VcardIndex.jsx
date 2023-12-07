@@ -11,8 +11,6 @@ const VcardIndex = () => {
   const selectedTemplate = useSelectedTemplate();
   const [pickerColor, setPickerColor] = useState({});
 
-  console.log(selectedTemplate, "From v card index");
-
   return (
     <>
       <section className="container flex items-center gap-5 px-5 py-10 mx-auto max-w-7xl bg-slate-100">
