@@ -25,7 +25,7 @@ const VcardIndex = () => {
           <ColorsPlateView setPickerColor={setPickerColor} />
           <VcardInformation />
         </div>
-        <div className="previewSection">
+        <div className="fixed top-[25%] right-0">
           <TemplatePreviewOne pickerColor={pickerColor} />
         </div>
       </section>

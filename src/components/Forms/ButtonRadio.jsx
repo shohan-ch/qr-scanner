@@ -2,7 +2,7 @@ const ButtonRadio = (props) => {
   const { value, label, groupName, handleChange } = props;
   return (
     <>
-      <div>
+      <div className="w-[50%]">
         <input
           onChange={handleChange}
           type="radio"
@@ -13,7 +13,7 @@ const ButtonRadio = (props) => {
         />
         <label
           htmlFor={value}
-          className="p-5 w-[400px] text-center border-2 block peer-checked:border-blue-600 peer-checked:rounded-md"
+          className="block p-5 text-center border-2 peer-checked:border-blue-600 peer-checked:rounded-md"
         >
           {label.toUpperCase()}
         </label>
