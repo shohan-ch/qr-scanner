@@ -19,13 +19,19 @@ const TemplatePreviewOne = (props) => {
              className="header  h-[65%] -mx-4 -mt-4 px-4 pt-16"
            >
              <div className="mx-auto space-y-2 text-center">
-               <img
-                 src="https://img.qrfy.com/img/original/mockup_vcard.webp"
-                 alt="img"
-                 width={82}
-                 height={82}
-                 className="mx-auto border border-white rounded-full"
-               />
+                 <img
+                   src={
+                     formField.profileImage
+                       ? URL.createObjectURL(formField.profileImage)
+                       : "https://img.qrfy.com/img/original/mockup_vcard.webp"
+                   }
+                   alt="img"
+                   width={82}
+                   height={82}
+                   className="mx-auto border border-white rounded-full"
+                 />
+               
+
                <h2 className="text-2xl font-semibold">
                  {formField.name} {formField.surname}
                </h2>
@@ -185,25 +191,29 @@ const TemplatePreviewOne = (props) => {
            </div>
            {/* Socail Network */}
            <div className="border-b">
-            <small className="text-center">Find me on:</small>
+             <small className="text-center">Find me on:</small>
              {formField.socialNetworks?.length > 0 &&
                formField.socialNetworks.map((social) => {
-               let socialImage =  socialNetwork.find((item)=> item.name == social.name)
-                return  (
-                 <div className="flex items-center px-2 py-2 gap-x-4 bg-gray-50">
-                   <p>
-                    <img src={socialImage.logo} alt="img" width={30} height={50} />
-                   </p>
-                   <div className="text-xs text-left">
-                    <a href={social.url}>{social.name} </a>
+                 let socialImage = socialNetwork.find(
+                   (item) => item.name == social.name
+                 );
+                 return (
+                   <div className="flex items-center px-2 py-2 gap-x-4 bg-gray-50">
+                     <p>
+                       <img
+                         src={socialImage.logo}
+                         alt="img"
+                         width={30}
+                         height={50}
+                       />
+                     </p>
+                     <div className="text-xs text-left">
+                       <a href={social.url}>{social.name} </a>
+                     </div>
                    </div>
-                 </div>
-                 )
-               }
-               )}
+                 );
+               })}
            </div>
-
-
          </div>
        </div>
      </div>
