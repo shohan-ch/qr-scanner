@@ -1,13 +1,35 @@
 import { useState } from "react";
+import { useFormField, useFormFieldDispatch } from "../Context/FormDataContext";
 
 const ProfileImageContainer = (props) => {
   const { handleChange } = props;
   const [image, setImage] = useState(null)
+  const formDispatch = useFormFieldDispatch();
+  const formField =  useFormField();
 
   const handleProfileImgChange = (e) => {
-    setImage(e.target.files[0]);
-    console.log(e.target.files[0]);
+    formDispatch({
+    type: "addImage",
+    payload: {
+      name: e.target.name,
+      file: e.target.files[0],
+    },
+   });
+    // setImage(e.target.files[0]);
+    // console.log(e.target.files[0]);
   };
+
+  const removeImage = (name) => () =>{
+   formDispatch({
+     type: "deleteImage",
+     payload: {
+       name: name,
+  
+     },
+   });
+  }
+ 
+  console.log(formField);
 
   return (
     <>
@@ -16,7 +38,12 @@ const ProfileImageContainer = (props) => {
           onChange={handleProfileImgChange}
           className="relative border h-[65px] w-[65px]"
         >
-          <input type="file" id="image" className="hidden appearance-none" />
+          <input
+            name="profileImage"
+            type="file"
+            id="image"
+            className="hidden appearance-none"
+          />
           <label
             htmlFor="image"
             className="absolute flex items-center justify-center w-full h-full cursor-pointer"
@@ -40,18 +67,21 @@ const ProfileImageContainer = (props) => {
             </svg>
           </label>
         </div>
-        {image && (
+        {formField?.profileImage && (
           <>
             <div className="h-[80px] flex items-center">
               <img
                 alt="not found"
                 width={"80px"}
                 className="w-auto h-[70px]"
-                src={URL.createObjectURL(image)}
+                src={URL.createObjectURL(formField?.profileImage)}
               />
             </div>
 
-            <p onClick={()=>setImage(null)} className="px-3 py-1 border border-blue-600 rounded-full">
+            <p
+              onClick={removeImage("profileImage")}
+              className="px-3 py-1 border border-blue-600 rounded-full cursor-pointer"
+            >
               Delete
             </p>
           </>

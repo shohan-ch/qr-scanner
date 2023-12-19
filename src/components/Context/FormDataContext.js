@@ -39,6 +39,7 @@ const formFieldsReducer = (state, action) => {
       const { category, index, name, value } = action.payload;
       const categoryArray = state[category] || [];
 
+      // alert(index);
       const updatedCategoryArray = categoryArray.map((item) =>
         item.id === index ? { ...item, [name]: value } : item
       );
@@ -128,6 +129,40 @@ const formFieldsReducer = (state, action) => {
         socialNetworks: state.socialNetworks.filter(
           (social) => social.name !== name
         ),
+      };
+    }
+
+    case "addImage": {
+      const { name, file } = action.payload;
+      // alert(action.type);
+      return {
+        ...state,
+        [name]: file,
+      };
+    }
+
+    case "addMultipleImage": {
+      alert(action.type)
+      const {category, index, file } = action.payload;
+      const imageArray = state[category] || []
+      let updateImgArray = imageArray.map((item)=> item.id == index ? {...item, name:[file]} : item)
+
+      let image = {...state,
+      [category] : imageArray.some((item)=>item.id == index ? updateImgArray: [...updateImgArray, {
+        id:[index],
+        name:[file]
+      } ])
+
+      }
+      return image;
+    }
+
+    case "deleteImage": {
+      const { name } = action.payload;
+      // alert(name, "delete");
+      delete state[name];
+      return {
+        ...state,
       };
     }
 
