@@ -11,26 +11,36 @@ import StepsView from "../Steps/StepsView";
 const VcardIndex = () => {
   const selectedTemplate = useSelectedTemplate();
   const [pickerColor, setPickerColor] = useState({});
+  const [selectSteps, setSelectSteps] = useState(1);
+
+  const handleSlectSteps = (step) => {
+    setSelectSteps(step);
+  };
 
   return (
     <>
-      <StepsView />
-      <section className="container flex items-center gap-5 px-5 py-10 mx-auto max-w-7xl bg-slate-100">
-        <div className="w-[75%]">
-          <h2 className="text-lg font-medium">
-            Complete the content of the QR
-          </h2>
-          <InputField placeholder="Name Of Qr Code" />
+      <StepsView handleSlectSteps={handleSlectSteps} step={selectSteps} />
 
-          <Switch label="Autocomplete fields" />
-          <TemplateList />
-          <ColorsPlateView setPickerColor={setPickerColor} />
-          <VcardInformation />
-        </div>
-        <div className="fixed top-[25%] right-0">
-          <TemplatePreviewOne pickerColor={pickerColor} />
-        </div>
-      </section>
+      {selectSteps == 1 && (
+        <>
+          <section className="container flex items-center gap-5 px-5 py-10 mx-auto max-w-7xl bg-slate-100">
+            <div className="w-[75%]">
+              <h2 className="text-lg font-medium">
+                Complete the content of the QR
+              </h2>
+              <InputField placeholder="Name Of Qr Code" />
+
+              <Switch label="Autocomplete fields" />
+              <TemplateList />
+              <ColorsPlateView setPickerColor={setPickerColor} />
+              <VcardInformation />
+            </div>
+            <div className="fixed top-[25%] right-0">
+              <TemplatePreviewOne pickerColor={pickerColor} />
+            </div>
+          </section>
+        </>
+      )}
     </>
   );
 };
