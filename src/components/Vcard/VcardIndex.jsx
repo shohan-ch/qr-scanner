@@ -7,12 +7,14 @@ import Switch from "../Forms/Switch";
 import TemplateList from "../List/TemplateList";
 import TemplatePreviewOne from "../Templates/TemplatePreviewOne";
 import VcardInformation from "./VcardInformation";
+import StepsView from "../Steps/StepsView";
 const VcardIndex = () => {
   const selectedTemplate = useSelectedTemplate();
   const [pickerColor, setPickerColor] = useState({});
 
   return (
     <>
+      <StepsView />
       <section className="container flex items-center gap-5 px-5 py-10 mx-auto max-w-7xl bg-slate-100">
         <div className="w-[75%]">
           <h2 className="text-lg font-medium">
