@@ -1,8 +1,8 @@
 const StepsView = (props) => {
- const { handleSlectSteps, step } = props;
+  const { handleSlectSteps, step } = props;
   return (
     <>
-      <div className="max-w-7xl mx-auto flex justify-between w-full h-[60px] px-10 items-center bg-gray-200">
+      <div className="xs:hidden sm:flex max-w-7xl mx-auto  justify-between w-full h-[60px] px-10 items-center bg-gray-200">
         <div className="flex gap-x-5">
           <button
             value={"content"}

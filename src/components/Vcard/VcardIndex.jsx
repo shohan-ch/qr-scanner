@@ -23,8 +23,8 @@ const VcardIndex = () => {
 
       {selectSteps == 1 && (
         <>
-          <section className="container flex items-center gap-5 px-5 py-10 mx-auto max-w-7xl bg-slate-100">
-            <div className="w-[75%]">
+          <section className="container flex gap-5 px-5 mx-auto sm:items-center xs:items-start sm:py-10 xs:py-0 max-w-7xl bg-slate-100">
+            <div className="w-[75%] sm:block xs:hidden">
               <h2 className="text-lg font-medium">
                 Complete the content of the QR
               </h2>
@@ -35,7 +35,7 @@ const VcardIndex = () => {
               <ColorsPlateView setPickerColor={setPickerColor} />
               <VcardInformation />
             </div>
-            <div className="fixed top-[25%] right-0">
+            <div className="fixed sm:top-[10%] right-0 xs:w-full sm:w-[25%]">
               <TemplatePreviewOne pickerColor={pickerColor} />
             </div>
           </section>
